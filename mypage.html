@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!-- Template by quackit.com -->
+<html>
+	<head>
+		<title>Event Orgniser</title>
+
+                <!-- Tell the browser to be responsive to screen width -->
+               
+                    <!-- Bootstrap 3.3.5 -->
+                    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+                     <link rel="stylesheet" href="bootstrap/css/AdminLTE.min.css">
+
+		<style type="text/css">
+
+
+		
+            div.bs-example{
+                height: 711px;
+                overflow: scroll;
+            }
+ 
+		
+		body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			height: 100%; 
+			max-height: 100%; 
+			font-family:Sans-serif;
+			line-height: 1.5em;
+		}
+		
+		#header {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 60px; 
+			overflow: hidden;
+			background: #9ACD32;
+		}
+		
+		#nav {
+			position: absolute; 
+			top: 60px; 
+			left: 0; 
+			bottom: 0;
+			width: 310px;
+			overflow: auto; 
+			background: #6E6E6E	; 		
+		}
+		
+		#logo {
+			padding:10px;
+		}
+		
+		main {
+			position: fixed;
+			top: 60px; 
+			left: 310px; 
+			right: 0;
+			bottom: 0;
+			overflow: auto; 
+			background: #F2F2F2;
+		}
+		
+		.innertube {
+			margin: 15px;
+		}
+		
+		</style>
+
+		
+		<script type="text/javascript">
+
+if (window.location.hash === '#open'){
+			var today = new Date();
+			document.getElementById('time').innerHTML=today;
+}
+
+			function generateText(){
+	
+			}
+		</script>	
+	
+	</head>
+	
+	<body>		
+		<header id="header">
+		
+
+		</header>
+		
+
+		<main >
+		  <!-- Main content -->
+
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="box box-solid">
+                            <div class="box-header with-border">
+                                    <h4 class="box-title">Slot Booking</h4>
+                                </div>
+                                
+                                <div class="box-body">
+                                    <!-- the events -->
+                                    <div id="external-events">
+                                        
+                                           <div class="input-group">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Time <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#"></a></li>
+                                                    <li><a href="#"></a></li>
+                                                    <li><a href="#"></a></li>
+                                                </ul>
+                                            </div><!-- /btn-group -->
+                                            <input type="text" class="form-control" aria-label="...">
+                                                </div><!-- /input-group -->
+                                 <br>
+                                        <div class="input-group">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Duration <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li onclick="showdate()" ><a href="#">15 Minutes</a></li>
+                                                    <li onclick="showdate()" ><a href="#">30 Minutes</a></li>
+                                                    <li><a href="#">45 Minutes</a></li>
+                                                    <li><a href="#">60 Minutes</a></li>
+                                                    <li><a href="#">90 Minutes</a></li>
+                                                    <li><a href="#">120 Minutes</a></li>
+                                                    
+                                                </ul>
+                                            </div><!-- /btn-group -->
+                                            <input id="durtxt" type="text" class="form-control" aria-label="...">
+                                                </div><!-- /input-group -->
+<br>
+                                                <input type="text" class="form-control" placeholder="Initiator"><br>
+                                        <input type="text" class="form-control" placeholder="ID"><br>
+                                            <textarea class="form-control" rows="5" placeholder="Purpose"></textarea><br>
+                                            <center>
+                                                <button type="button" class="btn btn-success">Request Slot</button>
+                                            </center>
+                                            <div class="input-group">
+                                            </div><!-- /input-group -->
+                                            
+                                            
+                                        
+                                        
+                                    </div>
+                                </div><!-- /.box-body -->
+                            </div><!-- /. box -->
+                            
+                           
+                            <div class="box box-solid">
+                                <div class="box-header with-border">
+                                    <h4 class="box-title">Cancel Booked Slot</h4>
+                                </div>
+                                <div class="box-body">
+                                    <!-- the events -->
+                                    <div id="external-events">
+                                        
+                                     
+
+                                                <input type="text" class="form-control" placeholder="Initiator"><br>
+                                        <input type="text" class="form-control" placeholder="ID"><br>
+                                        <input type="text" class="form-control" placeholder="Booking ID"><br>
+                                     
+                                            <center>
+                                                <button type="button" class="btn btn-success">Cancel Slot</button>
+                                            </center>
+                                            <div class="input-group">
+                                            </div><!-- /input-group -->
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </div>
+                                </div><!-- /.box-body -->
+                            </div><!-- /. box -->
+                            
+                            
+                            
+                            
+                            
+                          
+                     
+                        </div><!-- /.col -->
+                        
+
+
+
+                        
+                        <div class="col-md-9">
+                            
+                            
+                            
+                           
+                            
+                            
+                            
+                            
+                            <!-- Request >>> class="warning"
+                             Approve >>> class="success"
+                             Busy >>> class="info"
+                             -->        
+                            
+                            <div class="box box-solid">
+                                
+                                <div class="box-body">
+                                    
+                                    
+                                    <div class="bs-example" data-example-id="contextual-table">
+                                        
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Time</th>
+                                                    <th>Event Name</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="active">
+                                                    <th scope="row">06:00 AM</th>
+                                                    <td> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">06:30 AM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr class="success">
+                                                    <th scope="row">07:00 AM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">07:30 AM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr class="active">
+                                                    <th scope="row">08:00 AM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">08:30 AM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr class="warning">
+                                                    <th scope="row">09:00 AM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">09:30 AM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr class="active">
+                                                    <th scope="row">11:00 AM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                
+                                                <tr >
+                                                    <th scope="row">11:30 AM</th>
+                                                    <td> </td>
+                                                </tr>
+                                                <tr class="active">
+                                                    <th scope="row">12:00 PM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr class="success">
+                                                    <th scope="row">12:30 PM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr class="active">
+                                                    <th scope="row">01:00 PM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr class="info">
+                                                    <th scope="row">01:30 PM</th>
+                                                    <td> </td>
+                                                    
+                                                    </tr class="active">
+                                                    <tr>
+                                                        <th scope="row">02:00 PM</th>
+                                                        <td> </td>
+                                                        
+                                                    </tr>
+                                                    <tr class="warning">
+                                                        <th scope="row">02:30 PM</th>
+                                                        <td> </td>
+                                                        
+                                                    </tr>
+                                                    <tr class="active">
+                                                        <th scope="row">03:00 PM</th>
+                                                        <td> </td>
+                                                        
+                                                    </tr>
+                                                    <tr >
+                                                        <th scope="row">03:30 PM</th>
+                                                        <td> </td>
+                                                        
+                                                    </tr>
+                                                    
+                                                    
+                                                </tr>
+                                                <tr class="active">
+                                                    <th scope="row">04:00 PM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">04:30 PM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr class="info">
+                                                    <th scope="row">05:00 PM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">05:30 PM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                                <tr class="warning">
+                                                    <th scope="row">06:00 PM</th>
+                                                    <td> </td>
+                                                    
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- /example -->        
+                                    
+                                    
+                                    
+                                    
+                                    <div class="input-group"> 
+                                    </div><!-- /input-group -->  
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div class="row">
+                                        
+                                        <div class="col-lg-6">
+                                            
+                                            
+                                            
+                                        </div><!-- /. box -->
+                                    </div><!-- /.col -->
+                                    
+                                    
+                                    
+                                </div><!-- /.row -->
+                                
+                                
+                                
+                                </section><!-- /.content -->
+            </div><!-- /.content-wrapper -->
+            
+		</main>
+
+
+		<nav id="nav">
+			<div class="innertube">
+
+
+<TABLE onmouseover="" style="cursor: pointer;" ALIGN=center class="table table-hover" bgcolour=""> 
+<TR >
+<TD ALIGN=center> << </TD>
+<TD COLSPAN="5" ALIGN=center><B>December 2001</B></TD> 
+<TD ALIGN=center> >> </TD>
+</TR>
+
+<TR> 
+<TD width= 30 ALIGN=center>Sun</TD>
+<TD width= 30 ALIGN=center>Mon</TD>
+<TD width= 30 ALIGN=center>Tue</TD>
+<TD width= 30 ALIGN=center>Wed</TD>
+<TD width= 30 ALIGN=center>Thu</TD>
+<TD width= 30 ALIGN=center>Fri</TD>
+<TD width= 30 ALIGN=center>Sat</TD>
+</TR>
+<TR> 
+<TD ALIGN=center></TD>
+<TD ALIGN=center></TD>
+<TD ALIGN=center></TD>
+<TD ALIGN=center></TD>
+<TD ALIGN=center></TD>
+<TD ALIGN=center></TD>
+<TD ALIGN=center>1</TD>
+</TR>
+<TR> 
+<TD ALIGN=center>2</TD>
+<TD ALIGN=center>3</TD>
+<TD ALIGN=center>4</TD>
+<TD ALIGN=center>5</TD>
+<TD ALIGN=center>6</TD>
+<TD ALIGN=center>7</TD>
+<TD ALIGN=center>8</TD>
+</TR>
+<TR> 
+<TD ALIGN=center>9</TD>
+<TD ALIGN=center>10</TD>
+<TD ALIGN=center>11</TD>
+<TD ALIGN=center>12</TD>
+<TD ALIGN=center>13</TD>
+<TD ALIGN=center>14</TD>
+<TD ALIGN=center>15</TD>
+</TR>
+<TR> 
+<TD ALIGN=center>16</TD>
+<TD ALIGN=center>17</TD>
+<TD ALIGN=center>18</TD>
+<TD ALIGN=center>19</TD>
+<TD ALIGN=center>20</TD>
+<TD ALIGN=center>21</TD>
+<TD ALIGN=center>22</TD>
+</TR>
+<TR> 
+<TD ALIGN=center>23</TD>
+<TD ALIGN=center>24</TD>
+<TD ALIGN=center>25</TD>
+<TD ALIGN=center>26</TD>
+<TD ALIGN=center>27</TD>
+<TD ALIGN=center>28</TD>
+<TD ALIGN=center>29</TD>
+</TR>
+<TR> 
+<TD ALIGN=center>30</TD>
+<TD ALIGN=center>31</TD>
+<TD ALIGN=center></TD>
+<TD ALIGN=center></TD>
+<TD ALIGN=center></TD>
+<TD ALIGN=center></TD>
+<TD ALIGN=center></TD>
+
+</TR>
+<TR >
+<TD ALIGN=center> </TD>
+<TD COLSPAN="5" ALIGN=center></TD> 
+<TD ALIGN=center> </TD>
+</TR>
+</TABLE>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+<TABLE  ALIGN=center class="table" bgcolour=""> 
+<TR >
+
+<TD COLSPAN="7" ALIGN=center><strong>
+         Admin Page
+
+        </strong>   </TD> 
+</TR>
+
+<TR> 
+<TD COLSPAN="7" ALIGN=center>
+	 <input type="text" class="form-control" placeholder="Password">
+
+</TD>
+</TR>
+
+
+<TR> 
+<TD COLSPAN="7" ALIGN=center>
+	<input class="btn btn-default" type="submit" value="Log Into Page"> 
+
+</TD>
+</TR>
+
+</TABLE>
+
+
+
+
+			</div>
+		</nav>	
+
+
+	</body>
+</html>

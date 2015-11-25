@@ -16,209 +16,6 @@
                        <script src="dist/js/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="dist/js/bootstrap-select.js"></script>
-<script>
-var first;
-var last;
-var now_month;
-var now_year;
-var month = new Array("Jan","Feb","March","April","May","Jun","July","August","September","October","November","December");
-var day = new Array("u","m","t","w","h","f","s");
-var no_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
-    window.onload = function one()
-    {
-        var dd = new Date();
-        var todays_date = dd.getDate();
-        var todays_day = dd.getDay();
-        var todays_month = dd.getMonth();
-        var todays_year = dd.getFullYear();
-        //alert(todays_date);
-    
-        var temp=print_Calender(todays_date,todays_day,todays_month,todays_year);
-        first= temp[0];
-        last=temp[1];
-        now_month=temp[2];
-        now_year=temp[3];
-    
-        //alert(now_year);
-        //temp=print_Calender(no_day[now_month-1],6,now_month-1,now_year);
-        //alert(v+"fsffs");
-        //temp=print_Calender(31,6);
-        //first= temp[0];
-        //last=temp[1];
-        //alert(first);
-    
-    }
-    
-    function prev_month()
-    {   
-        if (first==0)
-            {
-                first = 7;
-            }
-        
-        first = first - 1;
-    
-        if(now_month==0)
-        {
-            now_year = now_year - 1;
-            now_month= 12;
-        }
-        
-        var temp=print_Calender(no_day[now_month-1],first,now_month-1,now_year);
-        first= temp[0];
-        last=temp[1];
-        now_month=temp[2];
-        now_year=temp[3];
-    }
-    
-    function next_month()
-    {   
-        if (last==6)
-            {
-                last = -1;
-            }
-        last = (last+1);
-        if(now_month==11)
-        {
-            //alert(now_year+"vsdfsdf");
-            now_year = now_year + 1;
-            //alert(now_year);
-            
-        }
-        //alert(last+" "+no_day[(now_month+1)%12]);
-
-        var temp=print_Calender(1,last,((now_month+1)%12),now_year);
-        first= temp[0];
-        last=temp[1];
-        now_month=temp[2];
-        now_year=temp[3];
-        //alert(now_year);
-    }
-    
-    function print_Calender(todays_date,todays_day,todays_month,todays_year)
-    {
-
-        
-    //function get_date()
-    {
-
-        var d = new Date();
-        var real_todays_month = d.getMonth();
-        var real_todays_date = d.getDate();
-        var real_todays_year = d.getFullYear();
-        var temp = todays_date % 7;
-        var temp2 = todays_day;
-        //alert(real_todays_date);
-        //alert(real_todays_month);
-        //alert(real_todays_year);  
-        while(temp > 1)
-        {
-        
-            temp = temp - 1;
-            temp2 = temp2 - 1;
-            if(temp2 == -1)
-            {
-                temp2=6;
-            }
-        }
-    
-        //alert(temp2);
-        //alert(d.getMonth());
-        var temp3 = "s1" ;
-        var temp4 = 1;
-    
-        var curr_month = todays_month;
-
-
-
-        //alert(todays_day+" okokokoko")
-        //alert("1");
-        var cl1=0;
-        var cl2=1;
-        var cl3=0;
-        while(cl1<7)
-        {   
-            while(cl2<7)
-            {
-        
-                cl3 = day[cl1]+""+cl2;
-            
-                document.getElementById(cl3).innerHTML = "";
-    
-                cl2++;
-            }
-            cl2=1;
-            cl1++;
-        }
-
-
-
-        var numday = no_day[curr_month]
-        if ((numday==28) && (todays_year%4==0))
-        {
-            numday=29;
-        }
-        while(temp <= numday)
-        {   
-            temp3 = day[temp2]+""+temp4;
-        
-            document.getElementById(temp3).innerHTML = temp;
-            document.getElementById(temp3).style.color = "black";
-            if((real_todays_date==temp) && (real_todays_month==curr_month) && (real_todays_year==todays_year))
-            {
-                document.getElementById(temp3).style.color = "red";
-            }   
-    
-            if(temp == 1)
-            {
-                var first_day = temp2;
-            }
-            if(temp == numday)
-            {
-                var last_day = temp2;
-            }
-
-            if(temp2==6)
-            {
-                temp4 = temp4 + 1;
-            }
-            temp2 = (temp2 + 1) % 7 ;
-            temp = temp + 1;
-
-    
-    }
-    //alert(last_day);
-    var temp_month_year = month[todays_month]+" "+todays_year;
-
-    document.getElementById("month_year").innerHTML = temp_month_year;
-     
-    
-    
-    
-    
-    }
-return [first_day,last_day,todays_month,todays_year];
-}
-
-    function select_date(tag)
-    {
-        document.getElementById("today_date_show").innerHTML=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
-        document.getElementById("hid_date").value=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
-
-
-
-
-    
-    }
-
-
-
-</script>
-
-
-
-
-
 
                                                     </head>
 
@@ -227,6 +24,7 @@ return [first_day,last_day,todays_month,todays_year];
 
 
 		<style type="text/css">
+
 
 
 		
@@ -289,7 +87,9 @@ return [first_day,last_day,todays_month,todays_year];
 		</style>
 
 		
-	
+	<script type="text/javascript"  src="test.js" >
+
+</script>
 	
 	</head>
 	
@@ -313,84 +113,13 @@ return [first_day,last_day,todays_month,todays_year];
 
                             <div class="box box-solid">
                             <div class="box-header with-border">
-                                    <h4 class="box-title">Slot Booking</h4>
+                                    <h4 class="box-title">Notifications</h4>
                                 </div>
                                 
                                 <div class="box-body">
                                     <!-- the events -->
                                     <div id="external-events">
-                                    <center>
-                                         <button type="button"  name="today" class="btn btn-primary btn-lg btn-block"><span  id="today_date_show"> Select Date</span></button>
-										
-                                     </center> 
-
-<input id="hid_date" type="hidden" name="hid_date" value="">
-
-
-
-                                        <br> 
-
-                                        <select id="basic" name="basic" class="selectpicker show-tick form-control">
-          <option selected>Select Time</option>
-          
-            <option>6:00 AM</option>
-           <option>6:30 AM</option>
-            <option>7:00 AM</option>
-           <option>7:30 AM</option>
-            <option>8:00 AM</option>
-           <option>8:30 AM</option>
-            <option>9:00 AM</option>
-           <option>9:30 AM</option>
-            <option>10:00 AM</option>
-           <option>10:30 AM</option>
-            <option>11:00 AM</option>
-           <option>11:30 AM</option>
-            <option>12:00 AM</option>
-           <option>12:30 AM</option>
-            <option>1:00 PM</option>
-           <option>1:30 PM</option>
-               <option>2:00 PM</option>
-           <option>2:30 PM</option>
-               <option>3:00 PM</option>
-           <option>3:30 PM</option>
-               <option>4:00 PM</option>
-           <option>4:30 PM</option>
-               <option>5:00 PM</option>
-           <option>5:30 PM</option>
-               <option>6:00 PM</option>
-           <option>6:30 PM</option>
-              
-
-            
-          </optgroup>
-        </select>
-<br>
-         <br>
-
-                                        <select id="basic" name="basic1" class="selectpicker show-tick form-control">
-          <option selected>Select Duration</option>
-            <option>30 Minutes</option>
-            <option>60 Minutes</option>
-            <option>90 Minutes</option>
-          </optgroup>
-        </select>
-
-
-                                           
-
-             
-                            <br>           
-<br>
-                                                <input type="text" name="init_name" class="form-control" placeholder="Initiator"><br>
-                                        <input type="text" name="init_ID" class="form-control" placeholder="ID"><br>
-                                            <textarea class="form-control" name="purpose" rows="3" placeholder="Purpose"></textarea><br>
-                                            <center>
-                                                <button type="submit" class="btn btn-success">Request Slot</button>
-                                            </center>
-                                            <div class="input-group">
-                                            </div><!-- /input-group -->
-                                            
-                                            
+                                    
                                         
                                         
                                     </div>
@@ -398,38 +127,7 @@ return [first_day,last_day,todays_month,todays_year];
                             </div><!-- /. box -->
                     </form>                            
 
-<form name="slot_cancel" action="myserver.php" method="POST">
-                           
-                            <div class="box box-solid">
-                                <div class="box-header with-border">
-                                    <h4 class="box-title">Cancel Booked Slot</h4>
-                                </div>
-                                <div class="box-body">
-                                    <!-- the events -->
-                                    <div id="external-events">
-                                        
-                                     
 
-                                                <input type="text" class="form-control" placeholder="Initiator"><br>
-                                        <input type="text" class="form-control" placeholder="ID"><br>
-                                        <input type="text" class="form-control" placeholder="Booking ID"><br>
-                                     
-                                            <center>
-                                                <button type="button" class="btn btn-success">Cancel Slot</button>
-                                            </center>
-                                            <div class="input-group">
-                                            </div><!-- /input-group -->
-                                        
-                                        
-                                        
-                                        
-                                        
-                                    </div>
-                                </div><!-- /.box-body -->
-                            </div><!-- /. box -->
-                            
-                            </form>
-                            
                             
                             
                           
@@ -462,101 +160,109 @@ return [first_day,last_day,todays_month,todays_year];
                                     <div class="bs-example" data-example-id="contextual-table">
                                         
                                         <table class="table">
+                                        <col width="50">
+  <col width="200">
+  <col width="100">
+  
                                             <thead>
                                                 <tr>
                                                     <th>Time</th>
-                                                    <th>Initiator Name</th>
+                                                    <th>Event Name</th>
+                                                    <th>Accept/Reject</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr class="active">
                                                     <th scope="row">06:00 AM</th>
                                                     <td> </td>
+                                                     <td> </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">06:30 AM</th>
+                                                    <td> </td>
                                                     <td> </td>
                                                     
                                                 </tr>
                                                 <tr class="success">
                                                     <th scope="row">07:00 AM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">07:30 AM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr class="active">
                                                     <th scope="row">08:00 AM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">08:30 AM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr class="warning">
                                                     <th scope="row">09:00 AM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">09:30 AM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr class="active">
                                                     <th scope="row">11:00 AM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 
                                                 <tr >
                                                     <th scope="row">11:30 AM</th>
                                                     <td> </td>
+                                                    <td> </td>
                                                 </tr>
                                                 <tr class="active">
                                                     <th scope="row">12:00 PM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr class="success">
                                                     <th scope="row">12:30 PM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr class="active">
                                                     <th scope="row">01:00 PM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr class="info">
                                                     <th scope="row">01:30 PM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                     </tr class="active">
                                                     <tr>
                                                         <th scope="row">02:00 PM</th>
                                                         <td> </td>
-                                                        
+                                                        <td> </td>
                                                     </tr>
                                                     <tr class="warning">
                                                         <th scope="row">02:30 PM</th>
                                                         <td> </td>
-                                                        
+                                                        <td> </td>
                                                     </tr>
                                                     <tr class="active">
                                                         <th scope="row">03:00 PM</th>
                                                         <td> </td>
-                                                        
+                                                        <td> </td>
                                                     </tr>
                                                     <tr >
                                                         <th scope="row">03:30 PM</th>
                                                         <td> </td>
-                                                        
+                                                        <td> </td>
                                                     </tr>
                                                     
                                                     
@@ -564,27 +270,27 @@ return [first_day,last_day,todays_month,todays_year];
                                                 <tr class="active">
                                                     <th scope="row">04:00 PM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">04:30 PM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr class="info">
                                                     <th scope="row">05:00 PM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">05:30 PM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                                 <tr class="warning">
                                                     <th scope="row">06:00 PM</th>
                                                     <td> </td>
-                                                    
+                                                    <td> </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -699,7 +405,7 @@ return [first_day,last_day,todays_month,todays_year];
 </TR>
 </TABLE>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 <form name="login" action="myserver.php" method="POST">
@@ -713,17 +419,12 @@ return [first_day,last_day,todays_month,todays_year];
         </strong>   </TD> 
 </TR>
 
-<TR> 
-<TD COLSPAN="7" ALIGN=center>
-	 <input type="text" class="form-control" placeholder="Password">
 
-</TD>
-</TR>
 
 
 <TR> 
 <TD COLSPAN="7" ALIGN=center>
-	<input class="btn btn-default" type="submit" value="Log Into Page"> 
+	<input class="btn btn-default" type="submit" value="Log Out"> 
 
 </TD>
 </TR>

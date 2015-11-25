@@ -166,6 +166,7 @@ var no_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
 
     window.onload = function one()
     {
+        
         coloring();
 
         var dd = new Date();
@@ -377,6 +378,7 @@ build_day(date2);
 
 function build_day(date2)
 {
+
     var i = 0;
     
     while(i < table_init.length)
@@ -407,7 +409,7 @@ function coloring()
          str = time1[i];
          str = str + "1";
 
-alert(str);
+
         if(i%2 == 0)
         { 
              document.getElementById(str).innerHTML = " "; 
@@ -668,7 +670,7 @@ alert(str);
                                             <thead>
                                                 <tr>
                                                     <th>Time</th>
-                                                    <th>Event Name</th>
+                                                    <th>Initiator Name</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

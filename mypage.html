@@ -2,6 +2,8 @@
 <!-- Template by quackit.com -->
 <html>
 	<head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<title>Event Orgniser</title>
 
                 <!-- Tell the browser to be responsive to screen width -->
@@ -15,7 +17,7 @@
 
 		
             div.bs-example{
-                height: 711px;
+                height: 737px;
                 overflow: scroll;
             }
  
@@ -101,9 +103,14 @@
                                 <div class="box-body">
                                     <!-- the events -->
                                     <div id="external-events">
-                                        
+                                    <center>
+                                         <button type="button" class="btn btn-primary btn-lg btn-block"><span id="today_date_show"> Select Date</span></button>
+                                     </center>  
+                                        <br>
                                            <div class="input-group">
+
                                             <div class="input-group-btn">
+
                                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Time <span class="caret"></span></button>
                                                 <ul class="dropdown-menu">
                                                     <li><a href="#"></a></li>
@@ -132,7 +139,7 @@
 <br>
                                                 <input type="text" class="form-control" placeholder="Initiator"><br>
                                         <input type="text" class="form-control" placeholder="ID"><br>
-                                            <textarea class="form-control" rows="5" placeholder="Purpose"></textarea><br>
+                                            <textarea class="form-control" rows="3" placeholder="Purpose"></textarea><br>
                                             <center>
                                                 <button type="button" class="btn btn-success">Request Slot</button>
                                             </center>
@@ -443,11 +450,6 @@
 <TD ID="f6"  onclick="select_date(this)" ALIGN=center></TD>
 <TD ID="s6"  onclick="select_date(this)" ALIGN=center></TD>
 
-</TR>
-<TR >
-<TD ALIGN=center> </TD>
-<TD COLSPAN="5" ALIGN=center></TD> 
-<TD ALIGN=center> </TD>
 </TR>
 </TABLE>
 

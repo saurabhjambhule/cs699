@@ -183,7 +183,9 @@ return [first_day,last_day,todays_month,todays_year];
 
 	function select_date(tag)
 	{
-		alert(document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year)
+		document.getElementById("today_date_show").innerHTML=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
+
+		//alert(document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year)
 	}
 
 

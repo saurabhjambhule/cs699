@@ -119,11 +119,12 @@
                                     <!-- the events -->
                                     <div id="external-events">
                                     <center>
-                                         <button type="button" class="btn btn-primary btn-lg btn-block"><span id="today_date_show"> Select Date</span></button>
+                                         <button type="button"  name="today" class="btn btn-primary btn-lg btn-block"><span  id="today_date_show"> Select Date</span></button>
+										
                                      </center>  
                                         <br> 
 
-                                        <select id="basic" class="selectpicker show-tick form-control">
+                                        <select id="basic" name="basic" class="selectpicker show-tick form-control">
           <option selected>Select Time</option>
           
             <option>6:00 AM</option>
@@ -160,7 +161,7 @@
 <br>
          <br>
 
-                                        <select id="basic" class="selectpicker show-tick form-control">
+                                        <select id="basic" name="basic1" class="selectpicker show-tick form-control">
           <option selected>Select Duration</option>
             <option>30 Minutes</option>
             <option>60 Minutes</option>
@@ -174,11 +175,11 @@
              
                             <br>           
 <br>
-                                                <input type="text" class="form-control" placeholder="Initiator"><br>
-                                        <input type="text" class="form-control" placeholder="ID"><br>
-                                            <textarea class="form-control" rows="3" placeholder="Purpose"></textarea><br>
+                                                <input type="text" name="init_name" class="form-control" placeholder="Initiator"><br>
+                                        <input type="text" name="init_ID" class="form-control" placeholder="ID"><br>
+                                            <textarea class="form-control" name="purpose" rows="3" placeholder="Purpose"></textarea><br>
                                             <center>
-                                                <button type="button" class="btn btn-success">Request Slot</button>
+                                                <button type="submit" class="btn btn-success">Request Slot</button>
                                             </center>
                                             <div class="input-group">
                                             </div><!-- /input-group -->

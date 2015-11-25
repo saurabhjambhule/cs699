@@ -73,17 +73,9 @@
 		</style>
 
 		
-		<script type="text/javascript">
+	<script type="text/javascript"  src="test.js" >
 
-if (window.location.hash === '#open'){
-			var today = new Date();
-			document.getElementById('time').innerHTML=today;
-}
-
-			function generateText(){
-	
-			}
-		</script>	
+</script>
 	
 	</head>
 	
@@ -381,11 +373,11 @@ if (window.location.hash === '#open'){
 			<div class="innertube">
 
 
-<TABLE onmouseover="" style="cursor: pointer;" ALIGN=center class="table" bgcolour=""> 
+<TABLE   style="cursor: pointer;" ALIGN=center class="table" bgcolour=""> 
 <TR >
-<TD ALIGN=center> << </TD>
-<TD COLSPAN="5" ALIGN=center><B>December 2001</B></TD> 
-<TD ALIGN=center> >> </TD>
+<TD ALIGN=center onclick="prev_month()"> << </TD>
+<TD COLSPAN="5" ALIGN=center ID="month_year"><B>December 2001</B></TD> 
+<TD ALIGN=center onclick="next_month()"> >> </TD>
 </TR>
 
 <TR> 
@@ -398,58 +390,58 @@ if (window.location.hash === '#open'){
 <TD width= 30 ALIGN=center>Sat</TD>
 </TR>
 <TR> 
-<TD ALIGN=center></TD>
-<TD ALIGN=center></TD>
-<TD ALIGN=center></TD>
-<TD ALIGN=center></TD>
-<TD ALIGN=center></TD>
-<TD ALIGN=center></TD>
-<TD ALIGN=center>1</TD>
+<TD ID="u1" onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="m1" onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="t1" onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="w1" onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="h1" onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="f1" onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="s1" onclick="select_date(this)" ALIGN=center></TD>
 </TR>
 <TR> 
-<TD ALIGN=center>2</TD>
-<TD ALIGN=center>3</TD>
-<TD ALIGN=center>4</TD>
-<TD ALIGN=center>5</TD>
-<TD ALIGN=center>6</TD>
-<TD ALIGN=center>7</TD>
-<TD ALIGN=center>8</TD>
+<TD ID="u2" onclick="select_date(this)"  ALIGN=center></TD>
+<TD ID="m2"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="t2"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="w2"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="h2"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="f2"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="s2"  onclick="select_date(this)" ALIGN=center></TD>
 </TR>
 <TR> 
-<TD ALIGN=center>9</TD>
-<TD ALIGN=center>10</TD>
-<TD ALIGN=center>11</TD>
-<TD ALIGN=center>12</TD>
-<TD ALIGN=center>13</TD>
-<TD ALIGN=center>14</TD>
-<TD ALIGN=center>15</TD>
+<TD ID="u3"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="m3"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="t3"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="w3"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="h3"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="f3"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="s3"  onclick="select_date(this)" ALIGN=center></TD>
 </TR>
 <TR> 
-<TD ALIGN=center>16</TD>
-<TD ALIGN=center>17</TD>
-<TD ALIGN=center>18</TD>
-<TD ALIGN=center>19</TD>
-<TD ALIGN=center>20</TD>
-<TD ALIGN=center>21</TD>
-<TD ALIGN=center>22</TD>
+<TD ID="u4"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="m4"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="t4"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="w4"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="h4"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="f4"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="s4"  onclick="select_date(this)" ALIGN=center></TD>
 </TR>
 <TR> 
-<TD ALIGN=center>23</TD>
-<TD ALIGN=center>24</TD>
-<TD ALIGN=center>25</TD>
-<TD ALIGN=center>26</TD>
-<TD ALIGN=center>27</TD>
-<TD ALIGN=center>28</TD>
-<TD ALIGN=center>29</TD>
+<TD ID="u5"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="m5"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="t5"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="w5"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="h5"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="f5"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="s5"  onclick="select_date(this)" ALIGN=center></TD>
 </TR>
 <TR> 
-<TD ALIGN=center>30</TD>
-<TD ALIGN=center>31</TD>
-<TD ALIGN=center></TD>
-<TD ALIGN=center></TD>
-<TD ALIGN=center></TD>
-<TD ALIGN=center></TD>
-<TD ALIGN=center></TD>
+<TD ID="u6"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="m6"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="t6"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="w6"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="h6"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="f6"  onclick="select_date(this)" ALIGN=center></TD>
+<TD ID="s6"  onclick="select_date(this)" ALIGN=center></TD>
 
 </TR>
 <TR >

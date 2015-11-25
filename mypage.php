@@ -2,6 +2,140 @@
 <!-- Template by quackit.com -->
 <html>
 	<head>
+
+    <script type="text/javascript">
+
+    var time1 = new Array("6:00 AM","6:30 AM","7:00 AM","7:30 AM","8:00 AM","8:30 AM","9:00 AM","9:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM","12:30 PM","1:00 PM","1:30 PM","2:00 PM","2:30 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM","5:00 PM","5:30 PM","6:00 PM");
+ 
+    var table_date = [<?php  
+    
+         $conn = mysql_connect("localhost", "root", "root");
+         if (! $conn ) 
+    {
+        echo "Could not connect: ";
+    } 
+    $quer = 'SELECT * FROM proj_slot;';
+    mysql_select_db("mysql");
+    $tmp = mysql_query( $quer, $conn );
+    if ($tmp!=0) 
+    {
+        while($tmp1 = mysql_fetch_array($tmp, MYSQL_ASSOC))
+        {
+            echo ' "'.$tmp1['date'].'",';
+        } 
+    } 
+    else 
+    {
+        echo "Not Found.";
+    }
+    mysql_close($conn);
+    
+    ?>] ;
+
+      var table_time = [<?php  
+    
+         $conn = mysql_connect("localhost", "root", "root");
+         if (! $conn ) 
+    {
+        echo "Could not connect: ";
+    } 
+    $quer = 'SELECT * FROM proj_slot;';
+    mysql_select_db("mysql");
+    $tmp = mysql_query( $quer, $conn );
+    if ($tmp!=0) 
+    {
+        while($tmp1 = mysql_fetch_array($tmp, MYSQL_ASSOC))
+        {
+            echo ' "'.$tmp1['time'].'",';
+        } 
+    } 
+    else 
+    {
+        echo "Not Found.";
+    }
+    mysql_close($conn);
+    
+    ?>] ;
+
+      var table_dur = [<?php  
+    
+         $conn = mysql_connect("localhost", "root", "root");
+         if (! $conn ) 
+    {
+        echo "Could not connect: ";
+    } 
+    $quer = 'SELECT * FROM proj_slot;';
+    mysql_select_db("mysql");
+    $tmp = mysql_query( $quer, $conn );
+    if ($tmp!=0) 
+    {
+        while($tmp1 = mysql_fetch_array($tmp, MYSQL_ASSOC))
+        {
+            echo ' "'.$tmp1['duration'].'",';
+        } 
+    } 
+    else 
+    {
+        echo "Not Found.";
+    }
+    mysql_close($conn);
+    
+    ?>] ;
+
+      var table_init = [<?php  
+    
+         $conn = mysql_connect("localhost", "root", "root");
+         if (! $conn ) 
+    {
+        echo "Could not connect: ";
+    } 
+    $quer = 'SELECT * FROM proj_slot;';
+    mysql_select_db("mysql");
+    $tmp = mysql_query( $quer, $conn );
+    if ($tmp!=0) 
+    {
+        while($tmp1 = mysql_fetch_array($tmp, MYSQL_ASSOC))
+        {
+            echo ' "'.$tmp1['init_name'].'",';
+        } 
+    } 
+    else 
+    {
+        echo "Not Found.";
+    }
+    mysql_close($conn);
+    
+    ?>] ;
+
+      var table_stat = [<?php  
+    
+         $conn = mysql_connect("localhost", "root", "root");
+         if (! $conn ) 
+    {
+        echo "Could not connect: ";
+    } 
+    $quer = 'SELECT * FROM proj_slot;';
+    mysql_select_db("mysql");
+    $tmp = mysql_query( $quer, $conn );
+    if ($tmp!=0) 
+    {
+        while($tmp1 = mysql_fetch_array($tmp, MYSQL_ASSOC))
+        {
+            echo ' "'.$tmp1['approve'].'",';
+        } 
+    } 
+    else 
+    {
+        echo "Not Found.";
+    }
+    
+    ?>] ;
+
+
+
+   </script>
+
+
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<title>Event Orgniser</title>
@@ -16,16 +150,24 @@
                        <script src="dist/js/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="dist/js/bootstrap-select.js"></script>
-<script>
-var first;
+
+
+
+
+<script type="text/javascript">
+    var first;
 var last;
 var now_month;
 var now_year;
 var month = new Array("Jan","Feb","March","April","May","Jun","July","August","September","October","November","December");
 var day = new Array("u","m","t","w","h","f","s");
 var no_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+    
+
     window.onload = function one()
     {
+        coloring();
+
         var dd = new Date();
         var todays_date = dd.getDate();
         var todays_day = dd.getDay();
@@ -45,7 +187,28 @@ var no_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
         //temp=print_Calender(31,6);
         //first= temp[0];
         //last=temp[1];
-        //alert(first);
+
+        var date3 = todays_date + "-" + (todays_month+1) + "-" + todays_year;
+       
+
+ var i = 0;
+var str = "";
+    while(i < table_init.length)
+    {
+        if(table_date[i] == date3)
+        {
+            str = "";
+            document.getElementById(table_time[i]).className=table_stat[i];
+
+
+    str = table_time[i] + "1";
+    
+    document.getElementById(str).innerHTML = table_init[i]; 
+
+        }
+        i++;
+    }
+
     
     }
     
@@ -203,23 +366,64 @@ return [first_day,last_day,todays_month,todays_year];
     function select_date(tag)
     {
         document.getElementById("today_date_show").innerHTML=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
-        document.getElementById("hid_date").value=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
+document.getElementById("hid_date").value=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
+
+var date2 = document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
+
+coloring();
+build_day(date2);
+}
 
 
-
-
+function build_day(date2)
+{
+    var i = 0;
     
+    while(i < table_init.length)
+    {
+        if(table_date[i] == date2)
+        {
+             str = "";
+    str = table_time[i] + "1";
+    
+    document.getElementById(str).innerHTML = table_init[i]; 
+
+
+            document.getElementById(table_time[i]).className=table_stat[i];
+
+        }
+        i++;
     }
 
+}
 
+function coloring()
+{
+    var i = 0;
 
-</script>
+    while(i < 25)
+    {
+         var str = " ";
+         str = time1[i];
+         str = str + "1";
 
+alert(str);
+        if(i%2 == 0)
+        { 
+             document.getElementById(str).innerHTML = " "; 
+             document.getElementById(time1[i]).className="active";
+        }
+        else   
+        {
+             document.getElementById(str).innerHTML = " "; 
+             document.getElementById(time1[i]).className="";
+        }
+         i++;
+    }
 
-
-
-
-
+}
+    
+</script>>
                                                     </head>
 
 
@@ -288,7 +492,6 @@ return [first_day,last_day,todays_month,todays_year];
 		
 		</style>
 
-		
 	
 	
 	</head>
@@ -469,121 +672,134 @@ return [first_day,last_day,todays_month,todays_year];
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="active">
+                                                <tr id = "6:00 AM" class="active">
                                                     <th scope="row">06:00 AM</th>
-                                                    <td> </td>
+                                                    <td> <span id = "6:00 AM1"></span></td>
                                                 </tr>
-                                                <tr>
+                                                <tr id = "6:30 AM">
                                                     <th scope="row">06:30 AM</th>
-                                                    <td> </td>
+                                                    <td><span id = "6:30 AM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr class="success">
+                                                <tr id = "7:00 AM" class="success">
                                                     <th scope="row">07:00 AM</th>
-                                                    <td> </td>
+                                                    <td> <span id = "7:00 AM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr>
+                                                <tr id = "7:30 AM" >
                                                     <th scope="row">07:30 AM</th>
-                                                    <td> </td>
+                                                    <td><span id = "7:30 AM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr class="active">
+                                                <tr class="active" id = "8:00 AM">
                                                     <th scope="row">08:00 AM</th>
-                                                    <td> </td>
+                                                    <td><span id = "8:00 AM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr>
+                                                <tr id = "8:30 AM">
                                                     <th scope="row">08:30 AM</th>
-                                                    <td> </td>
+                                                    <td><span id = "8:30 AM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr class="warning">
+                                                <tr class="warning" id = "9:00 AM">
                                                     <th scope="row">09:00 AM</th>
-                                                    <td> </td>
+                                                    <td><span id = "9:00 AM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr>
+                                                <tr id = "9:30 AM">
                                                     <th scope="row">09:30 AM</th>
-                                                    <td> </td>
+                                                    <td><span id = "9:30 AM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr class="active">
+
+                                                 </tr>
+                                                <tr id = "10:00 AM">
+                                                    <th scope="row">10:00 AM</th>
+                                                    <td><span id = "10:00 AM1"></span> </td>
+                                                    
+                                                </tr>
+                                                <tr id = "10:30 AM" class="active">
+                                                    <th scope="row">10:30 AM</th>
+                                                    <td><span id = "10:30 AM1"></span></td>
+                                                    
+                                                </tr>
+
+                                                <tr id = "11:00 AM" class="active">
                                                     <th scope="row">11:00 AM</th>
-                                                    <td> </td>
+                                                    <td><span id = "11:00 AM1"></span></td>
                                                     
                                                 </tr>
                                                 
-                                                <tr >
+                                                <tr id = "11:30 AM">
                                                     <th scope="row">11:30 AM</th>
-                                                    <td> </td>
+                                                    <td><span id = "11:30 AM1"></span></td>
                                                 </tr>
-                                                <tr class="active">
+                                                <tr class="active" id = "12:00 PM">
                                                     <th scope="row">12:00 PM</th>
-                                                    <td> </td>
+                                                    <td><span id = "12:00 PM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr class="success">
+                                                <tr class="success" id = "12:30 PM">
                                                     <th scope="row">12:30 PM</th>
-                                                    <td> </td>
+                                                    <td><span id = "12:30 PM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr class="active">
+                                                <tr class="active" id = "1:00 PM">
                                                     <th scope="row">01:00 PM</th>
-                                                    <td> </td>
+                                                    <td><span id = "1:00 PM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr class="info">
+                                                <tr class="info" id = "1:30 PM">
                                                     <th scope="row">01:30 PM</th>
-                                                    <td> </td>
+                                                    <td><span id = "1:30 PM1"></span></td>
                                                     
-                                                    </tr class="active">
-                                                    <tr>
+                                                    </tr>
+                                                    <tr id = "2:00 PM">
                                                         <th scope="row">02:00 PM</th>
-                                                        <td> </td>
+                                                        <td><span id = "2:00 PM1"></span></td>
                                                         
                                                     </tr>
-                                                    <tr class="warning">
+                                                    <tr class="warning" id = "2:30 PM">
                                                         <th scope="row">02:30 PM</th>
-                                                        <td> </td>
+                                                        <td><span id = "2:30 PM1"></span></td>
                                                         
                                                     </tr>
-                                                    <tr class="active">
+                                                    <tr class="active" id = "3:00 PM">
                                                         <th scope="row">03:00 PM</th>
-                                                        <td> </td>
+                                                        <td><span id = "3:00 PM1"></span></td>
                                                         
                                                     </tr>
-                                                    <tr >
+                                                    <tr id = "3:30 PM">
                                                         <th scope="row">03:30 PM</th>
-                                                        <td> </td>
+                                                        <td><span id = "3:30 PM1"></span></td>
                                                         
                                                     </tr>
                                                     
                                                     
                                                 </tr>
-                                                <tr class="active">
+                                                <tr class="active" id = "4:00 PM">
                                                     <th scope="row">04:00 PM</th>
-                                                    <td> </td>
+                                                    <td><span id = "4:00 PM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr>
+                                                <tr id = "4:30 PM">
                                                     <th scope="row">04:30 PM</th>
-                                                    <td> </td>
+                                                    <td><span id = "4:30 PM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr class="info">
+                                                <tr class="info" id = "5:00 PM">
                                                     <th scope="row">05:00 PM</th>
-                                                    <td> </td>
+                                                    <td><span id = "5:00 PM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr>
+                                                <tr id = "5:30 PM">
                                                     <th scope="row">05:30 PM</th>
-                                                    <td> </td>
+                                                    <td><span id = "5:30 PM1"></span></td>
                                                     
                                                 </tr>
-                                                <tr class="warning">
+                                                <tr class="warning" id = "6:00 PM">
                                                     <th scope="row">06:00 PM</th>
-                                                    <td> </td>
+                                                    <td><span id = "6:00 PM1"></span></td>
                                                     
                                                 </tr>
                                             </tbody>

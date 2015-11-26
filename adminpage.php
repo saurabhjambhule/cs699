@@ -131,7 +131,53 @@
     mysql_close($conn);
     ?>] ;
 
+  var table_pur = [<?php  
+    
+         $conn = mysql_connect("localhost", "root", "root");
+         if (! $conn ) 
+    {
+        echo "Could not connect: ";
+    } 
+    $quer = 'SELECT * FROM proj_slot;';
+    mysql_select_db("mysql");
+    $tmp = mysql_query( $quer, $conn );
+    if ($tmp!=0) 
+    {
+        while($tmp1 = mysql_fetch_array($tmp, MYSQL_ASSOC))
+        {
+            echo ' "'.$tmp1['purpose'].'",';
+        } 
+    } 
+    else 
+    {
+        echo "Not Found.";
+    }
+    mysql_close($conn);
+    ?>] ;
 
+ var table_iid = [<?php  
+    
+         $conn = mysql_connect("localhost", "root", "root");
+         if (! $conn ) 
+    {
+        echo "Could not connect: ";
+    } 
+    $quer = 'SELECT * FROM proj_slot;';
+    mysql_select_db("mysql");
+    $tmp = mysql_query( $quer, $conn );
+    if ($tmp!=0) 
+    {
+        while($tmp1 = mysql_fetch_array($tmp, MYSQL_ASSOC))
+        {
+            echo ' "'.$tmp1['init_id'].'",';
+        } 
+    } 
+    else 
+    {
+        echo "Not Found.";
+    }
+    mysql_close($conn);
+    ?>] ;
 
    </script>
 
@@ -216,8 +262,9 @@ var no_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
     str3 = table_time[i] + "4";
     str4 = table_time[i] + "5";
     str5 = table_time[i] + "6";
-    
-document.getElementById(str).innerHTML = table_init[i]; 
+
+ var det = "("+ table_iid[i] + ") "+ table_init[i] + " -> " + table_pur[i] +"."; 
+            document.getElementById(str).innerHTML = det; 
    
 if(table_stat[i] == "warning")
 {
@@ -455,8 +502,8 @@ function build_day(date2)
              str3 = table_time[i] + "5";
 
 
-    
-            document.getElementById(str1).innerHTML = table_init[i]; 
+    var det = "("+ table_iid[i] + ") "+ table_init[i] + " -> " + table_pur[i] +"."; 
+            document.getElementById(str1).innerHTML = det;
             document.getElementById(table_time[i]).className=table_stat[i];
 
 if(table_stat[i] == "warning")
@@ -733,6 +780,8 @@ document.location = 'cancelpage.php?id1='+getid;
 
 
                             
+
+
                             
                           
                      

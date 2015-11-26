@@ -492,7 +492,7 @@ function build_day(date2)
              var str = "";
              str = table_time[i] + "2";
 
- var str1 = "";
+            var str1 = "";
              str1 = table_time[i] + "1";
 
              var str2 = "";
@@ -501,8 +501,8 @@ function build_day(date2)
              var str3 = "";
              str3 = table_time[i] + "5";
 
-
-    var det = "("+ table_iid[i] + ") "+ table_init[i] + " -> " + table_pur[i] +"."; 
+ var det = "("+ table_iid[i] + ") "+ table_init[i] + " -> " + table_pur[i] +"."; 
+    
             document.getElementById(str1).innerHTML = det;
             document.getElementById(table_time[i]).className=table_stat[i];
 
@@ -1097,7 +1097,7 @@ document.location = 'cancelpage.php?id1='+getid;
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-<form name="login" action="myserver.php" method="POST">
+<form name="login" action="mypage.php" method="POST">
 
 <TABLE  ALIGN=center class="table" bgcolour=""> 
 <TR >

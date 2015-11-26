@@ -369,6 +369,25 @@ return [first_day,last_day,todays_month,todays_year];
 
     function select_date(tag)
     {
+
+       var d2 = new Date();
+        var todays_date2 = d2.getDate();
+        var todays_day2 = d2.getDay();
+       var todays_month2 = d2.getMonth();
+        var todays_year2 = d2.getFullYear();
+     //   alert(now_month+""+todays_month2)
+        var flag = 0 ;
+      if( ( parseInt(now_month+1) >= parseInt(todays_month2+1) ) && ( parseInt(now_year) >= parseInt(todays_year2))||(( parseInt(now_year) > parseInt(todays_year2))) ) 
+        {
+            if((parseInt(document.getElementById(tag.id).innerHTML) >= parseInt(todays_date2) && ( parseInt(now_month+1) == parseInt(todays_month2+1) ) && ( parseInt(now_year) == parseInt(todays_year2)))||( ( parseInt(now_month+1) > parseInt(todays_month2+1) ) && ( parseInt(now_year) >= parseInt(todays_year2)))||(( parseInt(now_year) > parseInt(todays_year2))))
+         
+         { 
+                flag =1;
+          }
+        }
+        
+        if(flag==1) 
+        {  
         document.getElementById("today_date_show").innerHTML=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
 document.getElementById("hid_date").value=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
 
@@ -376,6 +395,11 @@ var date2 = document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_
 
 coloring();
 build_day(date2);
+}
+else
+{
+    alert("selection invalid");
+}
 }
 
 
@@ -923,7 +947,7 @@ function coloring()
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-<form name="login" action="myserver.php" method="POST">
+<form name="login" action="verify.php" method="POST">
 
 <TABLE  ALIGN=center class="table" bgcolour=""> 
 <TR >
@@ -936,7 +960,7 @@ function coloring()
 
 <TR> 
 <TD COLSPAN="7" ALIGN=center>
-	 <input type="text" class="form-control" placeholder="Password">
+	 <input type="text" class="form-control" name="pass" id="pass" placeholder="Password">
 
 </TD>
 </TR>

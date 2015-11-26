@@ -630,7 +630,7 @@ function coloring()
                             </div><!-- /. box -->
                     </form>                            
 
-<form name="slot_cancel" action="myserver.php" method="POST">
+<form name="slot_cancel" action="cancel.php" method="POST">
                            
                             <div class="box box-solid">
                                 <div class="box-header with-border">
@@ -642,12 +642,12 @@ function coloring()
                                         
                                      
 
-                                                <input type="text" class="form-control" placeholder="Initiator"><br>
-                                        <input type="text" class="form-control" placeholder="ID"><br>
-                                        <input type="text" class="form-control" placeholder="Booking ID"><br>
+                                                <input type="text" name="can_name" class="form-control" placeholder="Initiator"><br>
+                                        <input type="text" name="can_id" class="form-control" placeholder="ID"><br>
+                                        <input type="text" name="can_bid" class="form-control" placeholder="Booking ID"><br>
                                      
                                             <center>
-                                                <button type="button" class="btn btn-success">Cancel Slot</button>
+                                                <button type="submit" class="btn btn-success">Cancel Slot</button>
                                             </center>
                                             <div class="input-group">
                                             </div><!-- /input-group -->

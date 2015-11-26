@@ -128,7 +128,7 @@
     {
         echo "Not Found.";
     }
-    
+    mysql_close($conn);
     ?>] ;
 
 
@@ -190,12 +190,14 @@ var no_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
         //last=temp[1];
 
         var date3 = todays_date + "-" + (todays_month+1) + "-" + todays_year;
-       
+       document.getElementById("today_date_show").innerHTML=date3;
 
  var i = 0;
  var str = "";
  var str1 = "";
-
+ var str3 = "";
+ var str4 = "";
+ var str5 = "";
  
     while(i < table_init.length)
     {
@@ -203,41 +205,64 @@ var no_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
         {
             str = "";
             str1 = "";
+            str3 = "";
+             str4 = "";
+              str5 = "";
             document.getElementById(table_time[i]).className=table_stat[i];
 
 
     str = table_time[i] + "1";
     str1 = table_time[i] + "2";
+    str3 = table_time[i] + "4";
+    str4 = table_time[i] + "5";
+    str5 = table_time[i] + "6";
     
 document.getElementById(str).innerHTML = table_init[i]; 
    
+if(table_stat[i] == "warning")
+{
 
+var btn13 = document.createElement('input');
+btn13.type = "submit";
+btn13.id = str3;
+btn13.className = "btn btn-primary btn-xs";
+btn13.value = "Cancel";
+btn13.onclick = function do2() {disapprove(str3)};
+var tmppp1 = document.getElementById(str1);
+    tmppp1.appendChild(btn13);
+
+}
+else{
 
 var btn1 = document.createElement('input');
 btn1.type = "submit";
+btn1.id = str3;
 btn1.className = "btn btn-primary btn-xs";
 btn1.value = "Accept";
-//btn1.onclick = (function(entry) {return function() {chooseUser(entry);}})(entry);
-var tmppp = document.getElementById(str1);
-    tmppp.appendChild(btn1);
+btn1.onclick = function do3() {doapprove(this)};
+var tmppp2 = document.getElementById(str1);
+    tmppp2.appendChild(btn1);
+
 
      var btn2 = document.createElement('input');
 btn2.type = "submit";
+btn1.id = str4;
 btn2.className = "btn btn-default btn-xs";
 btn2.value = " ";
-//btn2.onclick = (function(entry) {return function() {chooseUser(entry);}})(entry);
-var tmppp = document.getElementById(str1);
-    tmppp.appendChild(btn2);
+//btn2.onclick = "approve()";
+var tmppp3 = document.getElementById(str1);
+    tmppp3.appendChild(btn2);
 
 
 var btn3 = document.createElement('input');
 btn3.type = "submit";
+btn1.id = str5;
 btn3.className = "btn btn-primary btn-xs";
 btn3.value = "Reject";
-//btn3.onclick = (function(entry) {return function() {chooseUser(entry);}})(entry);
-var tmppp = document.getElementById(str1);
-    tmppp.appendChild(btn3);
-
+btn3.onclick = function do1() {disapprove(str5)};
+var tmppp4 = document.getElementById(str1);
+    tmppp4.appendChild(btn3);
+}
     
         }
         i++;
@@ -399,8 +424,8 @@ return [first_day,last_day,todays_month,todays_year];
     {
         
 
-      //  document.getElementById("today_date_show").innerHTML=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
-//document.getElementById("hid_date").value=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
+      document.getElementById("today_date_show").innerHTML=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
+document.getElementById("hid_date").value=document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
 
 var date2 = document.getElementById(tag.id).innerHTML+"-"+(now_month+1)+"-"+now_year;
 coloring();
@@ -418,41 +443,63 @@ function build_day(date2)
         if(table_date[i] == date2)
         {
              var str = "";
-             str = table_time[i] + "1";
+             str = table_time[i] + "2";
+
+ var str1 = "";
+             str1 = table_time[i] + "1";
+
+             var str2 = "";
+             str2 = table_time[i] + "4";
+             
+             var str3 = "";
+             str3 = table_time[i] + "5";
+
 
     
-            document.getElementById(str).innerHTML = table_init[i]; 
+            document.getElementById(str1).innerHTML = table_init[i]; 
             document.getElementById(table_time[i]).className=table_stat[i];
 
+if(table_stat[i] == "warning")
+{
 
-            var str1 = "";
-             str1 = table_time[i] + "2";
+var btn13 = document.createElement('input');
+btn13.type = "submit";
+btn13.id = str3;
+btn13.className = "btn btn-primary btn-xs";
+btn13.value = "Cancel";
+btn13.onclick = function do2() {disapprove(str3)};
+var tmppp1 = document.getElementById(str);
+    tmppp1.appendChild(btn13);
 
+}
+else{
 var btn1 = document.createElement('input');
 btn1.type = "submit";
+btn1.id = str2;
 btn1.className = "btn btn-primary btn-xs";
 btn1.value = "Accept";
-//btn1.onclick = (function(entry) {return function() {chooseUser(entry);}})(entry);
-var tmppp = document.getElementById(str1);
-    tmppp.appendChild(btn1);
+btn1.onclick = function do1() {doapprove(this)};
+var tmppp1 = document.getElementById(str);
+    tmppp1.appendChild(btn1);
 
      var btn2 = document.createElement('input');
 btn2.type = "submit";
+
 btn2.className = "btn btn-default btn-xs";
 btn2.value = " ";
-//btn2.onclick = (function(entry) {return function() {chooseUser(entry);}})(entry);
-var tmppp = document.getElementById(str1);
-    tmppp.appendChild(btn2);
+var tmppp2 = document.getElementById(str);
+    tmppp2.appendChild(btn2);
 
 
 var btn3 = document.createElement('input');
 btn3.type = "submit";
+btn3.id = str3;
 btn3.className = "btn btn-primary btn-xs";
 btn3.value = "Reject";
-//btn3.onclick = (function(entry) {return function() {chooseUser(entry);}})(entry);
-var tmppp = document.getElementById(str1);
-    tmppp.appendChild(btn3);
-
+btn3.onclick = function do2() {disapprove(str3)};
+var tmppp3 = document.getElementById(str);
+    tmppp3.appendChild(btn3);
+}
         }
         i++;
     }
@@ -517,7 +564,46 @@ var tmppp1 = document.getElementById(str2);
 
 }
 
-    
+
+
+function doapprove(t1)
+{
+    var tstr = t1.id;
+    var getid = tstr.substr(0, 7);
+    var ttt = getid.substr(6, 7);
+    if(ttt != 'M')
+        getid = tstr.substr(0, 8);
+var tmppp1 = document.getElementById("today_date_show").innerHTML;
+
+
+getid = tmppp1 + getid;
+  
+
+  alert(getid)
+document.location = 'approvepage.php?id1='+getid; 
+
+    }
+
+
+function disapprove(t11)
+{
+
+     var tstr = t11;
+    var getid = tstr.substr(0, 7);
+    var ttt = getid.substr(6, 7);
+    if(ttt != 'M')
+        getid = tstr.substr(0, 8);
+
+    var tmppp1 = document.getElementById("today_date_show").innerHTML;
+
+getid = tmppp1 + getid;
+  
+  alert(getid)
+
+document.location = 'cancelpage.php?id1='+getid; 
+    }
+
+
 </script>>
                                                     </head>
 
@@ -605,6 +691,26 @@ var tmppp1 = document.getElementById(str2);
                 <section class="content">
                     <div class="row">
                         <div class="col-md-3">
+
+
+                            <div class="box box-solid">
+                         
+                                
+                                <div class="box-body">
+                                    <!-- the events -->
+                                    <div id="external-events">
+                                    <center>
+                                         <button type="button"  name="today" class="btn btn-primary btn-lg btn-block"><span  id="today_date_show"> Select Date</span></button>
+                                        
+                                     </center> 
+
+                                      <input id="hid_date" type="hidden" name="hid_date" value="">  
+
+                                    </div>
+                                </div><!-- /.box-body -->
+                            </div><!-- /. box -->
+                                            
+
 
 
                      <form name="slot_book" action="myserver.php" method="POST">

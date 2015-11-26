@@ -128,7 +128,7 @@
     {
         echo "Not Found.";
     }
-    
+    mysql_close($conn);
     ?>] ;
 
 
@@ -166,7 +166,7 @@ var no_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
 
     window.onload = function one()
     {
-        
+
         coloring();
 
         var dd = new Date();
@@ -196,8 +196,11 @@ var no_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
 var str = "";
     while(i < table_init.length)
     {
+       
+
         if(table_date[i] == date3)
         {
+            
             str = "";
             document.getElementById(table_time[i]).className=table_stat[i];
 
@@ -550,8 +553,8 @@ function coloring()
            <option>10:30 AM</option>
             <option>11:00 AM</option>
            <option>11:30 AM</option>
-            <option>12:00 AM</option>
-           <option>12:30 AM</option>
+            <option>12:00 PM</option>
+           <option>12:30 PM</option>
             <option>1:00 PM</option>
            <option>1:30 PM</option>
                <option>2:00 PM</option>
